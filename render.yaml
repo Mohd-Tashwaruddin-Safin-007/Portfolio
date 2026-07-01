@@ -24,6 +24,6 @@ services:
       - key: DB_NAME
         value: portfolio
       - key: MONGODB_URI
-        sync: false   # set this manually in the Render dashboard
+        sync: mongodb+srv://taswaruddin517_db_user:4RYb58b3HaWE57Uk@cluster0.8mbeuxn.mongodb.net/   # set this manually in the Render dashboard
       - key: CLIENT_ORIGIN
-        sync: false   # set this to your Vercel URL after the frontend deploys
+        sync: https://portfolio-amyb.vercel.app/   # set this to your Vercel URL after the frontend deploys
