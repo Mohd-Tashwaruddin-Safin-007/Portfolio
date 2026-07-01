@@ -46,6 +46,7 @@ You will deploy **two services**:
 3. **Database** → [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) (free M0 cluster)
 
 The order matters: deploy the **backend first**, get its URL, then point the frontend at it.
+Vercel should deploy only the static `client/` app. The backend stays on Render, which avoids the Hobby-plan serverless function limit.
 
 ### Step 1 — Push the repo to GitHub
 
@@ -124,7 +125,7 @@ https://safin-portfolio-api.onrender.com/api/projects
 ### Step 5 — Deploy the frontend to Vercel
 
 1. Go to [vercel.com/new](https://vercel.com/new) → **Import** your GitHub repo.
-2. Vercel auto-detects `vercel.json`. Override **Build Command** to `cd client && npm install && npm run build` and **Output Directory** to `client/dist` if it doesn't pick them up.
+2. Vercel auto-detects `vercel.json`. Keep the build focused on the client only: `cd client && npm install && npm run build`, with `client/dist` as the output directory.
 3. **Environment Variables** → add:
    - `VITE_API_BASE` = `https://safin-portfolio-api.onrender.com`  *(no trailing slash)*
 4. Click **Deploy**. Vercel gives you a URL like `https://your-portfolio.vercel.app`.
