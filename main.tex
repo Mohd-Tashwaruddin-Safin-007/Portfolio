@@ -1,0 +1,200 @@
+%-------------------------
+% Resume in Latex
+% Author : Jake Gutierrez
+% Based off of: https://github.com/sb2nov/resume
+% License : MIT
+%------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\input{glyphtounicode}
+
+
+%----------FONT OPTIONS----------
+% sans-serif
+% \usepackage[sfdefault]{FiraSans}
+% \usepackage[sfdefault]{roboto}
+% \usepackage[sfdefault]{noto-sans}
+% \usepackage[default]{sourcesanspro}
+
+% serif
+% \usepackage{CormorantGaramond}
+% \usepackage{charter}
+
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+% Ensure that generate pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%############
+
+
+\begin{document}
+
+%----------HEADING----------
+\begin{center}
+    \textbf{\Huge \scshape Mohd Tashwaruddin Safin} \\ \vspace{1pt}
+    \small 01985511517 $|$ \href{mailto:taswaruddin517@gmail.com}{\underline{taswaruddin517@gmail.com}} $|$ 
+    \href{https://www.linkedin.com/in/tashwar-uddin-safin-7676b0237/}{\underline{linkedin.com/in/safin}} $|$
+    \href{https://github.com/Taswaruddin007}{\underline{github.com/safin}}
+\end{center}
+
+
+%-----------EDUCATION-----------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Brac University}{Merul Badda, Dhaka}
+      {Bachelor of Science in Computer Science and Engineering (CGPA: 3.92/4.00)}{Oct. 2021 -- Sep 2026}
+      \resumeItemListStart
+        \resumeItem{\textbf{Core Coursework:} Data Structures and Algorithms, Database Management Systems, Software Engineering, Operating Systems, Object-Oriented Programming, Computer Networks.}
+     \resumeItemListEnd
+    \resumeSubheading
+      {Birshreshtha Munshi Abdur Rouf Public College}{BGB Head Quarters, Dhaka}
+      {Higher Secondary School Certificate in Science (GPA: 5.00/5.00)}{Jul. 2018 -- Apr. 2020}
+  \resumeSubHeadingListEnd
+
+
+%-----------PROGRAMMING SKILLS-----------
+\section{Technical Skills}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     \textbf{Languages}{: Java, Python, C/C++, SQL, JavaScript, HTML/CSS} \\
+     \textbf{Frameworks}{: React, Node.js, Express, Material-UI} \\
+     \textbf{Developer Tools}{: Git, GitHub, Google Cloud Platform, Supabase, VS Code, PyCharm, Code-blocks} \\
+     \textbf{Libraries}{: pandas, NumPy, Matplotlib, Seaborn, PyTorch}
+    }}
+ \end{itemize}
+
+
+%-----------PROJECTS-----------
+\section{Projects}
+    \resumeSubHeadingListStart          
+      \resumeProjectHeading
+    {\textbf{NeuraRig} $|$ \emph{MERN Stack (MongoDB, Express, React, Node.js), Groq API, JWT}}{Feb. 2025 -- May. 2025}
+    \resumeItemListStart
+      \resumeItem{Architected an AI-powered e-commerce platform for computer accessories with full CRUD capabilities for system administrators.}
+      \resumeItem{Leveraged the Groq API to build a specialized hardware chatbot capable of parsing user constraints to ensure build compatibility.}
+      \resumeItem{Secured client-server communication using stateful cart storage, JWT-driven authentication sessions, and securely encrypted user databases.}
+      \resumeItem{Optimized application UX with seamless React Router navigation, detailed product rating workflows, and a full checkout pipeline.}
+    \resumeItemListEnd
+
+    \resumeProjectHeading
+    {\textbf{Sphere} $|$ \emph{MERN Stack, Socket.IO, Supabase Storage, Leaflet, Google OAuth}}{Oct. 2025 -- Jan. 2026}
+    \resumeItemListStart
+      \resumeItem{Developed a multi-tier university community platform featuring real-time chat, learning management systems, and group forums.}
+      \resumeItem{Designed and implemented a modular backend API with Express using strict input validation middleware and Mongoose object modeling.}
+      \resumeItem{Built automation features including a resume/CV data extractor to seamlessly populate user portfolios and academic histories.}
+      \resumeItem{Optimized frontend state and map rendering using React 19, Material-UI (MUI), and Leaflet map component APIs.}
+    \resumeItemListEnd
+    \resumeSubHeadingListEnd
+
+
+%-----------EXPERIENCE-----------
+\section{Experience}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Undergraduate Student Tutor}{Feb. 2025 -- Present}
+      {Brac University}{Merul Badda, Dhaka}
+      \resumeItemListStart
+        \resumeItem{Facilitate student learning paths by breaking down complex concepts in foundational CSE courses.}
+        \resumeItem{Conduct weekly review sessions and offer guidance on debugging assignments and algorithmic logic.}
+      \resumeItemListEnd
+  \resumeSubHeadingListEnd
+
+
+%-----------CERTIFICATIONS & ACHIEVEMENTS-----------
+\section{Certifications \& Achievements}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     \textbf{Academic Awards}{: e.g., Received Performance-Based Scholarship at Brac University / Dean's List (Spring 2024)}
+    }}
+ \end{itemize}
+
+
+%-----------EXTRACURRICULAR ACTIVITIES-----------
+\section{Extracurricular Activities}
+  \resumeSubHeadingListStart
+    \resumeProjectHeading
+      {\textbf{Brac University Computer Club (BUCC)} $|$ \emph{Former Member}}{Jan. 2022 -- Mar. 2023}
+      \resumeItemListStart
+        \resumeItem{Participated in internal hackathons, technical workshops, and assisted in organizing university tech-fests.}
+      \resumeItemListEnd
+  \resumeSubHeadingListEnd
+
+%-------------------------------------------
+\end{document}

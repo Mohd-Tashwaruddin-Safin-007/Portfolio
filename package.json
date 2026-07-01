@@ -1,0 +1,12 @@
+{
+  "name": "safin-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Modern MERN portfolio for Mohd Tashwaruddin Safin, deployed on Vercel.",
+  "scripts": {
+    "install:all": "npm install --prefix api && npm install --prefix client",
+    "dev:api": "npm run dev --prefix api",
+    "dev:client": "npm run dev --prefix client",
+    "seed": "npm run seed --prefix api"
+  }
+}

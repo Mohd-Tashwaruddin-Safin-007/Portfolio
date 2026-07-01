@@ -1,0 +1,29 @@
+# Render Blueprint — https://render.com/docs/blueprint-spec
+# Render reads this file and provisions your backend automatically when you
+# connect your GitHub repo. You only need to fill in the fromDatabase value
+# with your Atlas connection string, OR attach Atlas via the Render dashboard
+# instead (recommended for free tier).
+
+services:
+  - type: web
+    name: safin-portfolio-api
+    runtime: node
+    rootDir: api
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /api/health
+    autoDeploy: true
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: HOST
+        value: 0.0.0.0
+      - key: DB_NAME
+        value: portfolio
+      - key: MONGODB_URI
+        sync: false   # set this manually in the Render dashboard
+      - key: CLIENT_ORIGIN
+        sync: false   # set this to your Vercel URL after the frontend deploys
