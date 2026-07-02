@@ -26,3 +26,6 @@ pnpm-debug.log*
 
 # Uploads
 uploads/
+
+# Editor caches
+.puku/
