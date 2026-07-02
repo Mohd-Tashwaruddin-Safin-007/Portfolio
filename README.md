@@ -177,9 +177,106 @@ If `VITE_API_BASE` is empty, the frontend will use relative `/api/...` paths. Th
 
 ---
 
-## Adding Your Photo
+## Where You Add Information Manually
 
-Drop your portrait (the one you attached) as `client/public/safin.jpg`. The Hero component reads it from there. For a darker fallback you can also reference an external URL in the database.
+This project is pre-loaded with your CV data (name, education, projects, experience, contact links) inside `api/seed/seedData.js` and the mirrored static file `client/src/data/fallback.js`. **You usually don't need to touch code at all.** The few manual spots are external — they live in dashboards, env files, and one optional file replace. Below is the full list, in the order you'll hit them.
+
+### 1. Local secrets — `.env` files (only if you run locally)
+
+Copy the example files once:
+
+```bash
+cp api/.env.example api/.env
+cp client/.env.example client/.env
+```
+
+Edit these two values in `api/.env`:
+
+| Variable | What to put |
+| --- | --- |
+| `MONGODB_URI` | The connection string from MongoDB Atlas (or `mongodb://localhost:27017/portfolio` for a local DB). |
+| `CLIENT_ORIGIN` | `http://localhost:5173` while developing. |
+
+Edit this in `client/.env`:
+
+| Variable | What to put |
+| --- | --- |
+| `VITE_API_BASE` | Leave blank to use the Vite proxy, or set to `http://localhost:5000`. |
+
+`.env` files are git-ignored, so secrets never leak.
+
+### 2. MongoDB Atlas — `MONGODB_URI`
+
+On **Step 2** of the deploy guide above, create the M0 cluster, then in **Database Access** create a user (username + password). The connection string has the form:
+
+```
+mongodb+srv://<username>:<password>@<cluster>.mongodb.net/?retryWrites=true&w=majority
+```
+
+Paste the **whole string** into Render → Environment → `MONGODB_URI`. This is the single most important value — nothing else works without it.
+
+### 3. Render — `MONGODB_URI` and `CLIENT_ORIGIN`
+
+In Render → your `safin-portfolio-api` service → **Environment**:
+
+| Variable | When to set | Value |
+| --- | --- | --- |
+| `MONGODB_URI` | Before first deploy | Atlas connection string from step 2. |
+| `CLIENT_ORIGIN` | After Vercel gives you a URL (Step 5) | `https://your-portfolio.vercel.app` — controls CORS for the contact form. |
+
+`PORT` (10000) and `HOST` (0.0.0.0) are already pinned by `render.yaml`, so leave them alone.
+
+### 4. Seed the database — one curl after first Render deploy
+
+After Render reports `🚀 API listening on...`, POST to the seed endpoint:
+
+```bash
+curl -X POST https://safin-portfolio-api.onrender.com/api/seed
+```
+
+This loads everything in `api/seed/seedData.js` into MongoDB. Re-run it any time you change that seed file.
+
+### 5. Vercel — `VITE_API_BASE`
+
+In Vercel → Project → **Settings → Environment Variables**:
+
+| Variable | Value |
+| --- | --- |
+| `VITE_API_BASE` | `https://safin-portfolio-api.onrender.com` (no trailing slash). |
+
+Without this, the page still renders (fallback data) and the contact form just won't reach the API.
+
+### 6. CV content — `api/seed/seedData.js` (and mirror in `client/src/data/fallback.js`)
+
+When your CV changes, edit `api/seed/seedData.js`. The `profile`, `projects`, and `experiences` arrays are fully populated — you only change values, not structure. After editing, re-run the curl above.
+
+**Also keep `client/src/data/fallback.js` in sync.** It's the snapshot used the first 5 s (and on Render cold starts, when the API is slow). If you only edit the seed file, the fallback drifts and offline visitors see old info.
+
+### 7. Photo — `client/public/safin.jpg`
+
+`client/public/safin.jpg` is already in place. If you want to swap it: drop a new image at that exact path (overwrite), commit, and push — Vite serves files from `public/` as-is with hashed filenames not applied.
+
+### 8. Custom domain — two places, if you buy one
+
+- **Vercel → Settings → Domains** → add the domain, copy the DNS records into your registrar.
+- **Render → Environment → `CLIENT_ORIGIN`** → set to the new Vercel domain so CORS still allows the contact form.
+
+### 9. (Rare) `render.yaml` — service name
+
+The blueprint names the service `safin-portfolio-api`. If that name is taken on Render, edit `render.yaml` line 3 (`name: safin-portfolio-api`) before clicking **Apply**, or pick **Manual** deploy instead of the blueprint.
+
+---
+
+**TL;DR — the only things you type yourself:**
+
+1. `<username>` / `<password>` / `<cluster>` in the Atlas connection string.
+2. The Atlas connection string → Render's `MONGODB_URI`.
+3. The Render URL → Vercel's `VITE_API_BASE`.
+4. The Vercel URL → Render's `CLIENT_ORIGIN`.
+5. The one `curl -X POST .../api/seed` call.
+6. Optionally edit `api/seed/seedData.js` + `client/src/data/fallback.js` when your CV changes.
+
+---
 
 ## What's Deployed Where
 
