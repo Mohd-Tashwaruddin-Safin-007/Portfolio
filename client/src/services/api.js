@@ -1,13 +1,16 @@
 import axios from 'axios';
 
-// In production we rely on the Vercel rewrite (/api/* → serverless function),
-// so we use a relative base. In local dev, vite.config proxies /api → :5000.
-// VITE_API_BASE can override this when the API lives on a different host.
+// Production: VITE_API_BASE must be set in Vercel env to your Render URL
+// (e.g. https://safin-portfolio-api.onrender.com). Without it, requests hit
+// the Vercel domain itself and 404 — the App gracefully falls back to the
+// bundled static data and shows the page anyway.
+//
+// Local dev: leave VITE_API_BASE empty. vite.config.js proxies /api/* → :5000.
 const baseURL = import.meta.env.VITE_API_BASE || '';
 
 export const api = axios.create({
   baseURL,
-  timeout: 12000,
+  timeout: 10000,
 });
 
 export const portfolioApi = {
