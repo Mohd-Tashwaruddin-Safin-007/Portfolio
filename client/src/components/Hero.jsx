@@ -88,14 +88,18 @@ export default function Hero({ profile }) {
                   Get in touch
                 </Button>
                 <Button
-                  onClick={() => scrollToSection('projects')}
+                  component="a"
+                  href="/resume.pdf"
+                  target="_blank"
+                  rel="noopener"
+                  download="Mohd-Tashwaruddin-Safin-CV.pdf"
                   variant="outlined"
                   size="large"
                   color="inherit"
                   sx={{ borderColor: 'rgba(255,255,255,0.15)' }}
                   startIcon={<DownloadIcon />}
                 >
-                  View projects
+                  Download CV
                 </Button>
               </Stack>
               <Stack direction="row" spacing={1} sx={{ mt: 3 }}>
@@ -159,7 +163,7 @@ export default function Hero({ profile }) {
                   fontWeight: 600,
                 }}
               >
-                🎓 CGPA 3.92
+                🎓 CGPA 3.91
               </Box>
             </Box>
           </motion.div>

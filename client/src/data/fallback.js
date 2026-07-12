@@ -9,7 +9,7 @@ export const fallbackProfile = {
   phone: '01985511517',
   location: 'Dhaka, Bangladesh',
   bio:
-    'Final-year CSE student at Brac University with a CGPA of 3.92. I enjoy architecting full-stack applications, exploring AI integrations, and shipping polished user experiences.',
+    'Final-year CSE student at Brac University with a CGPA of 3.91. I enjoy architecting full-stack applications, exploring AI integrations, and shipping polished user experiences.',
   socials: {
     linkedin: 'https://www.linkedin.com/in/tashwar-uddin-safin-7676b0237/',
     github: 'https://github.com/Taswaruddin007',
@@ -17,9 +17,48 @@ export const fallbackProfile = {
   skills: {
     languages: ['Java', 'Python', 'C/C++', 'SQL', 'JavaScript', 'HTML/CSS'],
     frameworks: ['React', 'Node.js', 'Express', 'Material-UI'],
-    tools: ['Git', 'GitHub', 'Google Cloud Platform', 'Supabase', 'VS Code', 'PyCharm'],
+    tools: ['Git', 'GitHub', 'Google Cloud Platform', 'Supabase', 'VS Code', 'PyCharm', 'Code::Blocks'],
     libraries: ['pandas', 'NumPy', 'Matplotlib', 'Seaborn', 'PyTorch'],
   },
+  education: [
+    {
+      institution: 'Brac University',
+      location: 'Merul Badda, Dhaka',
+      degree: 'Bachelor of Science in Computer Science and Engineering (CGPA: 3.91/4.00)',
+      startDate: 'Oct 2021',
+      endDate: 'Sep 2026',
+      details: [
+        'Core Coursework: Data Structures and Algorithms, Database Management Systems, Software Engineering, Operating Systems, Object-Oriented Programming, Computer Networks.',
+      ],
+    },
+    {
+      institution: 'Birshreshtha Munshi Abdur Rouf Public College',
+      location: 'BGB Head Quarters, Dhaka',
+      degree: 'Higher Secondary School Certificate in Science (GPA: 5.00/5.00)',
+      startDate: 'Jul 2018',
+      endDate: 'Apr 2020',
+      details: [],
+    },
+  ],
+  achievements: [
+    'Performance-Based Scholarship, Brac University — awarded in recognition of outstanding academic performance and maintaining an excellent CGPA.',
+    "Dean's List, Brac University — achieved placement on the Dean's List in three semesters for exceptional academic performance.",
+    'Talent Pool Scholarship (JSC) — secured 8th position in Kotwali Thana, Dhaka, earning the government Talent Pool Scholarship for outstanding achievement in Class 8 (2016).',
+  ],
+  extracurricular: [
+    {
+      title: 'Brac University Entrepreneur Development Forum (BUEDF)',
+      organization: 'BUEDF',
+      period: 'Jan 2022 – Jan 2023',
+      description: 'Former Member — prepared promotional content and assisted in public communications for entrepreneurship-related events and initiatives.',
+    },
+    {
+      title: 'Brac University Computer Club (BUCC)',
+      organization: 'BUCC',
+      period: 'Jan 2022 – Mar 2023',
+      description: 'Former Member — participated in technical workshops and tech-fests.',
+    },
+  ],
 };
 
 export const fallbackProjects = [

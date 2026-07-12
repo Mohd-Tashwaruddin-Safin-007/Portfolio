@@ -13,7 +13,7 @@ export async function seedDatabase() {
     email: 'taswaruddin517@gmail.com',
     phone: '01985511517',
     location: 'Dhaka, Bangladesh',
-    bio: 'Final-year CSE student at Brac University with a CGPA of 3.92. I enjoy architecting full-stack applications, exploring AI integrations, and shipping polished user experiences.',
+    bio: 'Final-year CSE student at Brac University with a CGPA of 3.91. I enjoy architecting full-stack applications, exploring AI integrations, and shipping polished user experiences.',
     socials: {
       linkedin: 'https://www.linkedin.com/in/tashwar-uddin-safin-7676b0237/',
       github: 'https://github.com/Taswaruddin007',
@@ -28,7 +28,7 @@ export async function seedDatabase() {
       {
         institution: 'Brac University',
         location: 'Merul Badda, Dhaka',
-        degree: 'Bachelor of Science in Computer Science and Engineering (CGPA: 3.92/4.00)',
+        degree: 'Bachelor of Science in Computer Science and Engineering (CGPA: 3.91/4.00)',
         startDate: 'Oct 2021',
         endDate: 'Sep 2026',
         details: [
@@ -45,15 +45,22 @@ export async function seedDatabase() {
       },
     ],
     achievements: [
-      "Received Performance-Based Scholarship at Brac University.",
-      "Dean's List (Spring 2024).",
+      'Performance-Based Scholarship, Brac University — awarded in recognition of outstanding academic performance and maintaining an excellent CGPA.',
+      "Dean's List, Brac University — achieved placement on the Dean's List in three semesters for exceptional academic performance.",
+      'Talent Pool Scholarship (JSC) — secured 8th position in Kotwali Thana, Dhaka, earning the government Talent Pool Scholarship for outstanding achievement in Class 8 (2016).',
     ],
     extracurricular: [
       {
+        title: 'Brac University Entrepreneur Development Forum (BUEDF)',
+        organization: 'BUEDF',
+        period: 'Jan 2022 – Jan 2023',
+        description: 'Former Member — prepared promotional content and assisted in public communications for entrepreneurship-related events and initiatives.',
+      },
+      {
         title: 'Brac University Computer Club (BUCC)',
         organization: 'BUCC',
-        period: 'Jan 2022 -- Mar 2023',
-        description: 'Participated in internal hackathons, technical workshops, and assisted in organizing university tech-fests.',
+        period: 'Jan 2022 – Mar 2023',
+        description: 'Former Member — participated in technical workshops and tech-fests.',
       },
     ],
   });
