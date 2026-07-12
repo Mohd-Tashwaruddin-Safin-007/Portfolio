@@ -14,8 +14,8 @@ import {
   Container,
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
-import { Link as ScrollLink } from 'react-scroll';
 import { useScrollSpy } from '../hooks/useScrollSpy.js';
+import { scrollToSection } from '../utils/scroll.js';
 
 const links = [
   { id: 'home', label: 'Home' },
@@ -43,7 +43,7 @@ export default function Navbar() {
       <List>
         {links.map((l) => (
           <ListItem key={l.id} disablePadding>
-            <ListItemButton component={ScrollLink} to={l.id} smooth offset={-70} duration={500}>
+            <ListItemButton onClick={() => scrollToSection(l.id)}>
               <ListItemText primary={l.label} />
             </ListItemButton>
           </ListItem>
@@ -65,10 +65,7 @@ export default function Navbar() {
       <Container maxWidth="lg">
         <Toolbar sx={{ justifyContent: 'space-between', px: { xs: 0 } }}>
           <Box
-            component={ScrollLink}
-            to="home"
-            smooth
-            duration={500}
+            onClick={() => scrollToSection('home')}
             sx={{
               cursor: 'pointer',
               fontFamily: "'Space Grotesk', sans-serif",
@@ -85,12 +82,7 @@ export default function Navbar() {
             {links.map((l) => (
               <Button
                 key={l.id}
-                component={ScrollLink}
-                to={l.id}
-                smooth
-                offset={-70}
-                duration={500}
-                spy
+                onClick={() => scrollToSection(l.id)}
                 color={active === l.id ? 'primary' : 'inherit'}
                 sx={{
                   color: active === l.id ? 'text.primary' : 'text.secondary',

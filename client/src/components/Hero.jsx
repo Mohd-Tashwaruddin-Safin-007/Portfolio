@@ -5,7 +5,7 @@ import EmailIcon from '@mui/icons-material/Email';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
-import { Link as ScrollLink } from 'react-scroll';
+import { scrollToSection } from '../utils/scroll.js';
 
 export default function Hero({ profile }) {
   const socials = profile?.socials || {};
@@ -80,11 +80,7 @@ export default function Hero({ profile }) {
             >
               <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2} sx={{ mt: 4 }}>
                 <Button
-                  component={ScrollLink}
-                  to="contact"
-                  smooth
-                  offset={-70}
-                  duration={500}
+                  onClick={() => scrollToSection('contact')}
                   variant="contained"
                   size="large"
                   startIcon={<EmailIcon />}
@@ -92,11 +88,7 @@ export default function Hero({ profile }) {
                   Get in touch
                 </Button>
                 <Button
-                  component={ScrollLink}
-                  to="projects"
-                  smooth
-                  offset={-70}
-                  duration={500}
+                  onClick={() => scrollToSection('projects')}
                   variant="outlined"
                   size="large"
                   color="inherit"
@@ -183,11 +175,7 @@ export default function Hero({ profile }) {
           }}
         >
           <IconButton
-            component={ScrollLink}
-            to="about"
-            smooth
-            offset={-70}
-            duration={500}
+            onClick={() => scrollToSection('about')}
             sx={{
               animation: 'bounce 2s infinite',
               '@keyframes bounce': {
